@@ -77,8 +77,8 @@
   .feature-card {
     background: hsl(var(--card));
     border-radius: var(--radius);
-    box-shadow: var(--card-shadow);
-    border: 1px solid hsl(var(--border));
+    box-shadow: 0 8px 32px -4px hsl(210 50% 10% / 0.25), 0 2px 8px -2px hsl(210 50% 10% / 0.1);
+    border: none;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -91,16 +91,15 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+    background: linear-gradient(90deg, hsl(var(--secondary)), hsl(171 49% 60%));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .feature-card:hover {
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(-4px);
-    border-color: hsl(var(--primary) / 0.25);
+    box-shadow: 0 16px 48px -8px hsl(210 50% 10% / 0.3), 0 4px 12px -2px hsl(210 50% 10% / 0.15);
+    transform: translateY(-6px);
   }
 
   .feature-card:hover::before {
