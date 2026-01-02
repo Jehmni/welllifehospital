@@ -1,0 +1,63 @@
+.about {
+    padding: 8rem 0;
+    background-color: var(--bg-light);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 6rem;
+}
+
+.about-image {
+    position: relative;
+    height: 400px;
+}
+
+.accent-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    background: var(--primary-blue);
+    border-radius: 40px;
+    transform: rotate(-3deg);
+    opacity: 0.05;
+}
+
+.hospital-card {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    padding: 3rem;
+    border-radius: 30px;
+    max-width: 80%;
+    box-shadow: var(--shadow-soft);
+}
+
+.hospital-card h3 {
+    margin-bottom: 1rem;
+}
+
+.check-list {
+    margin: 2rem 0;
+}
+
+.check-list li {
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-image {
+        height: 300px;
+    }
+}
