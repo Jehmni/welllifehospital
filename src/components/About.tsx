@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import './About.css';
 
-const About = () => {
+const About: React.FC = () => {
     return (
         <section className="about" id="about">
             <div className="container about-content">
@@ -22,7 +22,7 @@ const About = () => {
                         <li>✓ Professional Diagnostic Lab</li>
                         <li>✓ Affordable Healthcare Plans</li>
                     </ul>
-                    <a href="#contact" className="btn-primary">Learn Our Story</a>
+                    <a href="#contact" className="hospital-btn-primary">Learn Our Story</a>
                 </div>
             </div>
         </section>

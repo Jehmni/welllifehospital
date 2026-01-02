@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import './Services.css';
 
 const services = [
@@ -34,7 +34,7 @@ const services = [
     }
 ];
 
-const Services = () => {
+const Services: React.FC = () => {
     return (
         <section className="services" id="services">
             <div className="container">

@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import './Contact.css';
 
-const Contact = () => {
+const Contact: React.FC = () => {
     return (
         <section className="contact" id="contact">
             <div className="container contact-content">
@@ -50,9 +50,9 @@ const Contact = () => {
                             </select>
                         </div>
                         <div className="form-group">
-                            <textarea placeholder="Your Message" rows="4"></textarea>
+                            <textarea placeholder="Your Message" rows={4}></textarea>
                         </div>
-                        <button type="submit" className="btn-primary" style={{ width: '100%' }}>Send Message</button>
+                        <button type="submit" className="hospital-btn-primary" style={{ width: '100%', border: 'none' }}>Send Message</button>
                     </form>
                 </div>
             </div>
