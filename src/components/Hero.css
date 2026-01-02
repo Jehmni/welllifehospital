@@ -1,5 +1,5 @@
 .hero {
-    padding: 10rem 0 6rem;
+    padding: 8rem 0 4rem;
     background: radial-gradient(circle at top right, rgba(82, 168, 242, 0.1), transparent);
     overflow: hidden;
 }

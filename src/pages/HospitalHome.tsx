@@ -16,7 +16,7 @@ const HospitalHome: React.FC = () => {
                 <About />
                 <Contact />
             </main>
-            <footer style={{ padding: '6rem 0 2rem', backgroundColor: 'var(--primary-blue)', color: 'white' }}>
+            <footer style={{ padding: '4rem 0 2rem', backgroundColor: 'var(--primary-blue)', color: 'white' }}>
                 <div className="container" style={{ textAlign: 'center' }}>
                     <div className="footer-logo" style={{ marginBottom: '2rem' }}>
                         <h2 style={{ color: 'white', marginBottom: '0.5rem' }}>Well-Life Hospital</h2>

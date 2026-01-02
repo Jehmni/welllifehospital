@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -21,12 +22,14 @@ const Navbar: React.FC = () => {
                     <span className="logo-subtext">Hospital</span>
                 </div>
                 <ul className="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/services">Services</Link></li>
+                    <li><Link to="/gallery">Gallery</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/fertily-sdk">Fertily SDK</Link></li>
                 </ul>
-                <a href="#appointment" className="hospital-btn-primary appointment-btn">Book Appointment</a>
+                <Link to="/contact" className="hospital-btn-primary appointment-btn">Book Appointment</Link>
             </div>
         </nav>
     );

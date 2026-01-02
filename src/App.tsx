@@ -5,6 +5,10 @@ import { TooltipProvider } from "./components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HospitalHome from "./pages/HospitalHome";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import GalleryPage from "./pages/GalleryPage";
+import ContactPage from "./pages/ContactPage";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -18,7 +22,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HospitalHome />} />
-          <Route path="/portal" element={<Index />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/fertily-sdk" element={<Index />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
