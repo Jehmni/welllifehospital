@@ -1,5 +1,25 @@
-node_modules
-.DS_Store
-dist
-dist-ssr
+# node_modules
+node_modules/
+dist/
+dist-ssr/
 *.local
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite
+vite.config.ts.timestamp-*
+vite.config.js.timestamp-*
