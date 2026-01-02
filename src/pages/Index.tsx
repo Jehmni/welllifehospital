@@ -120,16 +120,16 @@ const Index = () => {
           {/* Section Header */}
           <div className="text-center mb-14 md:mb-20">
             <span 
-              className="text-secondary font-semibold text-sm uppercase tracking-wider opacity-0 animate-fade-in"
+              className="font-semibold text-sm uppercase tracking-wider opacity-0 animate-fade-in"
               style={{ animationDelay: "600ms" }}
             >
               Powered by AI
             </span>
             <h2 
-              className="mt-3 text-3xl md:text-4xl font-bold text-foreground opacity-0 animate-fade-in"
+              className="mt-3 text-3xl md:text-4xl font-bold opacity-0 animate-fade-in"
               style={{ animationDelay: "700ms" }}
             >
-              Comprehensive <span className="gradient-text">AI Features</span>
+              Comprehensive AI Features
             </h2>
             <p 
               className="mt-4 text-muted-foreground max-w-xl mx-auto opacity-0 animate-fade-in"
