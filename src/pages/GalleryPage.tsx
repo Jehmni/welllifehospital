@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Facebook, Instagram, Twitter, Youtube, X } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Youtube, X, Camera } from 'lucide-react';
 
 const categories = ['All', 'Our Team', 'Facilities'];
 
@@ -27,38 +27,41 @@ const GalleryPage: React.FC = () => {
         : galleryItems.filter(item => item.category === activeCategory);
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-white">
             <Navbar />
             
             {/* Hero Section */}
-            <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--primary-blue)] via-[#000a8c] to-[var(--secondary-blue)] relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/placeholder.svg')] opacity-5 bg-cover bg-center"></div>
-                <div className="container mx-auto px-6 relative z-10 text-center">
-                    <span className="inline-block bg-white/10 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                        Gallery
-                    </span>
-                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-                        Take a peek at Well-Life Hospital's inside
-                    </h1>
-                    <p className="text-white/70 max-w-2xl mx-auto">
-                        Take a look around and see where the magic of medicine takes place.
-                    </p>
+            <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 via-white to-sky-50 relative overflow-hidden">
+                <div className="absolute top-20 right-20 w-96 h-96 bg-[var(--secondary-blue)]/5 rounded-full blur-3xl" />
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="max-w-3xl">
+                        <span className="inline-block text-[var(--primary-teal)] font-semibold text-sm uppercase tracking-widest mb-4">
+                            Gallery
+                        </span>
+                        <h1 className="text-5xl lg:text-6xl font-bold text-[var(--text-main)] leading-tight mb-6">
+                            A Glimpse Inside 
+                            <span className="text-[var(--primary-blue)]"> Well-Life</span>
+                        </h1>
+                        <p className="text-xl text-[var(--text-secondary)]">
+                            Take a look around and see where the magic of medicine takes place.
+                        </p>
+                    </div>
                 </div>
             </section>
 
             {/* Gallery Grid */}
-            <section className="py-24 bg-white">
+            <section className="py-24">
                 <div className="container mx-auto px-6">
                     {/* Category Filters */}
-                    <div className="flex flex-wrap justify-center gap-4 mb-12">
+                    <div className="flex flex-wrap justify-center gap-3 mb-12">
                         {categories.map((category) => (
                             <button
                                 key={category}
                                 onClick={() => setActiveCategory(category)}
-                                className={`px-6 py-3 rounded-full font-semibold transition-all ${
+                                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${
                                     activeCategory === category
-                                        ? 'bg-[var(--primary-blue)] text-white shadow-lg'
-                                        : 'bg-[var(--bg-light)] text-[var(--text-secondary)] hover:bg-gray-200'
+                                        ? 'bg-gradient-to-r from-[var(--primary-blue)] to-[var(--secondary-blue)] text-white shadow-lg shadow-[var(--primary-blue)]/20'
+                                        : 'bg-slate-100 text-[var(--text-secondary)] hover:bg-slate-200'
                                 }`}
                             >
                                 {category}
@@ -72,17 +75,22 @@ const GalleryPage: React.FC = () => {
                             <div
                                 key={index}
                                 onClick={() => setSelectedImage(index)}
-                                className="group cursor-pointer relative overflow-hidden rounded-2xl aspect-[4/3] bg-gradient-to-br from-[var(--primary-blue)]/20 to-[var(--primary-teal)]/20"
+                                className="group cursor-pointer relative overflow-hidden rounded-3xl aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-50 border border-slate-100"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                {/* Placeholder Image */}
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center">
-                                        <span className="text-4xl text-white/30">📷</span>
+                                    <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center">
+                                        <Camera className="w-8 h-8 text-slate-300" />
                                     </div>
                                 </div>
-                                <div className="absolute bottom-0 left-0 right-0 p-6 text-white translate-y-full group-hover:translate-y-0 transition-transform">
-                                    <span className="text-sm text-[var(--primary-teal)] font-medium">{item.category}</span>
-                                    <h3 className="font-bold text-lg">{item.title}</h3>
+
+                                {/* Hover Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-blue)]/90 via-[var(--primary-blue)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                
+                                {/* Content */}
+                                <div className="absolute bottom-0 left-0 right-0 p-6 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                                    <span className="text-xs font-medium text-[var(--primary-teal)] uppercase tracking-wider">{item.category}</span>
+                                    <h3 className="font-bold text-lg mt-1">{item.title}</h3>
                                 </div>
                             </div>
                         ))}
@@ -91,58 +99,50 @@ const GalleryPage: React.FC = () => {
             </section>
 
             {/* Quote Section */}
-            <section className="py-16 bg-[var(--bg-light)]">
+            <section className="py-16 bg-slate-50">
                 <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold">
-                        <span className="text-[var(--primary-blue)]">Your </span>
-                        <span className="text-[var(--primary-teal)] italic">Well-being </span>
-                        <span className="text-[var(--primary-blue)]">is our goal</span>
+                    <h2 className="text-4xl lg:text-5xl font-bold text-[var(--text-main)]">
+                        Your <span className="text-[var(--primary-teal)]">Well-being</span> is our goal
                     </h2>
                 </div>
             </section>
 
             {/* Social Section */}
-            <section className="py-16 bg-white">
+            <section className="py-16">
                 <div className="container mx-auto px-6 text-center">
-                    <h3 className="text-2xl font-bold text-[var(--primary-teal)] mb-8">
-                        Follow Well-Life Hospital
+                    <h3 className="text-xl font-bold text-[var(--text-main)] mb-8">
+                        Follow <span className="text-[var(--primary-teal)]">Well-Life Hospital</span>
                     </h3>
-                    <div className="flex justify-center gap-4">
-                        <a href="#" className="w-12 h-12 rounded-full bg-[var(--primary-blue)] text-white flex items-center justify-center hover:bg-[var(--primary-teal)] transition-colors">
-                            <Facebook className="w-5 h-5" />
-                        </a>
-                        <a href="#" className="w-12 h-12 rounded-full bg-[var(--primary-blue)] text-white flex items-center justify-center hover:bg-[var(--primary-teal)] transition-colors">
-                            <Instagram className="w-5 h-5" />
-                        </a>
-                        <a href="#" className="w-12 h-12 rounded-full bg-[var(--primary-blue)] text-white flex items-center justify-center hover:bg-[var(--primary-teal)] transition-colors">
-                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-                        </a>
-                        <a href="#" className="w-12 h-12 rounded-full bg-[var(--primary-blue)] text-white flex items-center justify-center hover:bg-[var(--primary-teal)] transition-colors">
-                            <Twitter className="w-5 h-5" />
-                        </a>
-                        <a href="#" className="w-12 h-12 rounded-full bg-[var(--primary-blue)] text-white flex items-center justify-center hover:bg-[var(--primary-teal)] transition-colors">
-                            <Youtube className="w-5 h-5" />
-                        </a>
+                    <div className="flex justify-center gap-3">
+                        {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
+                            <a 
+                                key={i}
+                                href="#" 
+                                className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[var(--primary-blue)] to-[var(--secondary-blue)] text-white flex items-center justify-center hover:shadow-lg hover:shadow-[var(--primary-blue)]/20 hover:-translate-y-1 transition-all duration-300"
+                            >
+                                <Icon className="w-5 h-5" />
+                            </a>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* Lightbox Modal */}
             {selectedImage !== null && (
-                <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-6">
+                <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-6" onClick={() => setSelectedImage(null)}>
                     <button
                         onClick={() => setSelectedImage(null)}
                         className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
                     >
                         <X className="w-6 h-6" />
                     </button>
-                    <div className="max-w-4xl w-full">
-                        <div className="aspect-video bg-gradient-to-br from-[var(--primary-blue)]/30 to-[var(--primary-teal)]/30 rounded-2xl flex items-center justify-center">
-                            <span className="text-6xl text-white/30">📷</span>
+                    <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+                        <div className="aspect-video bg-slate-800 rounded-3xl flex items-center justify-center">
+                            <Camera className="w-16 h-16 text-slate-600" />
                         </div>
                         <div className="text-center mt-6">
-                            <span className="text-[var(--primary-teal)] text-sm">{filteredItems[selectedImage]?.category}</span>
-                            <h3 className="text-white text-2xl font-bold">{filteredItems[selectedImage]?.title}</h3>
+                            <span className="text-[var(--primary-teal)] text-sm font-medium">{filteredItems[selectedImage]?.category}</span>
+                            <h3 className="text-white text-2xl font-bold mt-1">{filteredItems[selectedImage]?.title}</h3>
                         </div>
                     </div>
                 </div>

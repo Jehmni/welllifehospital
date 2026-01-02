@@ -2,32 +2,35 @@ import * as React from 'react';
 import { Users, Stethoscope, Award, Calendar } from 'lucide-react';
 
 const stats = [
-    { icon: Users, value: '5,000+', label: 'Happy Patients', color: 'from-blue-500 to-blue-600' },
-    { icon: Stethoscope, value: '33+', label: 'Medical Professionals', color: 'from-teal-500 to-teal-600' },
-    { icon: Award, value: '99.8%', label: 'Success Rate', color: 'from-indigo-500 to-indigo-600' },
-    { icon: Calendar, value: '7+', label: 'Years of Service', color: 'from-cyan-500 to-cyan-600' },
+    { icon: Users, value: '5,000+', label: 'Happy Patients' },
+    { icon: Stethoscope, value: '33+', label: 'Medical Professionals' },
+    { icon: Award, value: '99.8%', label: 'Success Rate' },
+    { icon: Calendar, value: '7+', label: 'Years of Service' },
 ];
 
 const StatsBar: React.FC = () => {
     return (
-        <section className="relative -mt-16 z-10 px-4">
-            <div className="container mx-auto max-w-6xl">
-                <div className="bg-gradient-to-r from-[var(--primary-blue)] via-[#000a8c] to-[var(--primary-blue)] rounded-2xl shadow-2xl overflow-hidden">
-                    <div className="grid grid-cols-2 lg:grid-cols-4">
+        <section className="py-16 bg-white">
+            <div className="container mx-auto px-6">
+                <div className="bg-gradient-to-r from-[var(--primary-blue)] via-[#001a9c] to-[var(--primary-blue)] rounded-3xl p-2">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-1">
                         {stats.map((stat, index) => (
                             <div
                                 key={index}
-                                className={`p-8 text-center text-white border-b lg:border-b-0 ${
-                                    index < stats.length - 1 ? 'lg:border-r border-white/10' : ''
-                                } ${index === 1 ? 'border-r border-white/10' : ''} hover:bg-white/5 transition-colors`}
+                                className="relative group p-8 lg:p-10 text-center text-white rounded-2xl hover:bg-white/5 transition-all duration-300"
                             >
                                 <div className="flex flex-col items-center">
-                                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-4 shadow-lg`}>
-                                        <stat.icon className="w-7 h-7 text-white" />
+                                    <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <stat.icon className="w-7 h-7 text-[var(--primary-teal)]" />
                                     </div>
-                                    <span className="text-3xl md:text-4xl font-bold mb-1">{stat.value}</span>
-                                    <span className="text-white/70 text-sm font-medium">{stat.label}</span>
+                                    <span className="text-4xl lg:text-5xl font-bold mb-2">{stat.value}</span>
+                                    <span className="text-white/70 text-sm font-medium tracking-wide">{stat.label}</span>
                                 </div>
+                                
+                                {/* Divider */}
+                                {index < stats.length - 1 && (
+                                    <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-20 bg-white/10" />
+                                )}
                             </div>
                         ))}
                     </div>
